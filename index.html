@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Профессиональный ремонт и диагностика автомобилей в Лодзи. Быстро, качественно, с гарантией.">
+    
+    <link rel="icon" href="favicon.ico">
+
+    <title>Автосервис в Лодзи | Ремонт любой сложности</title>
+
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="/">AutoLodz</a></div>
+        <nav>
+            <a href="#services">Услуги</a>
+            <a href="#tab-cards-complete">Наши работы</a>
+            <a href="#workshop-panel">Текущий статус</a>
+            <a href="#review-feed">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+        <button id="mobile-menu" class="menu-toggle">&#9776;</button>
+    </header>
+
+    <main>
+
+        <section id="services" class="services-section">
+            <div class="services-section-title">
+                <h1>Ремонт автомобилей в Лодзи</h1>
+                <p>Сделаем диагностику за 15 минут в день обращения</p>
+            </div>
+
+            <h2>Наши услуги</h2>
+            <div class="services-container">
+
+                <div class="card-container">
+                    <div class="card-flip">
+                        <div class="card-front">
+                            <div class="card-icon">🔧</div>
+                            <h3>Ходовая часть</h3>
+                            <p class="hover-hint">Наведи, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Ремонт подвески</h3>
+                            <ul class="card-service-list">
+                                <li>Замена амортизаторов</li>
+                                <li>Ремонт тормозной системы</li>
+                                <li>Диагностика подвески</li>
+                            </ul>
+                            <div class="card-price">от 80 PLN</div>
+                            <button class="btn-card-action" onclick="document.getElementById('workshop-panel').scrollIntoView({behavior: 'smooth'})">Записать машину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card-flip">
+                        <div class="card-front">
+                            <div class="card-icon">🛢️</div>
+                            <h3>Двигатель и ТО</h3>
+                            <p class="hover-hint">Наведи, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Техническое обслуживание</h3>
+                            <ul class="card-service-list">
+                                <li>Замена масла и фильтров</li>
+                                <li>Замена ремня ГРМ</li>
+                                <li>Компьютерная диагностика</li>
+                            </ul>
+                            <div class="card-price">от 100 PLN</div>
+                            <button class="btn-card-action" onclick="document.getElementById('workshop-panel').scrollIntoView({behavior: 'smooth'})">Записать машину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card-flip">
+                        <div class="card-front">
+                            <div class="card-icon">⚡</div>
+                            <h3>Автоэлектрика</h3>
+                            <p class="hover-hint">Наведи, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Электроника и свет</h3>
+                            <ul class="card-service-list">
+                                <li>Поиск короткого замыкания</li>
+                                <li>Установка камер / парктроников</li>
+                                <li>Ремонт блоков управления</li>
+                            </ul>
+                            <div class="card-price">от 120 PLN</div>
+                            <button class="btn-card-action" onclick="document.getElementById('workshop-panel').scrollIntoView({behavior: 'smooth'})">Записать машину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-container">
+                    <div class="card-flip">
+                        <div class="card-front">
+                            <div class="card-icon">✨</div>
+                            <h3>Детейлинг</h3>
+                            <p class="hover-hint">Наведи, чтобы узнать больше</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Уход и блеск</h3>
+                            <ul class="card-service-list">
+                                <li>Глубокая полировка кузова</li>
+                                <li>Химчистка салона с разбором</li>
+                                <li>Нанесение керамики / воска</li>
+                            </ul>
+                            <div class="card-price">от 200 PLN</div>
+                            <button class="btn-card-action" onclick="document.getElementById('workshop-panel').scrollIntoView({behavior: 'smooth'})">Записать машину</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="hero">
+
+            <div class="calc-box">
+                <h3>Выберите необходимые услуги:</h3>
+
+                <div class="calc-item">
+                    <input type="checkbox" id="service1" value="150" data-name="Компьютерная диагностика" class="service-checkbox">
+                    <label for="service1">Компьютерная диагностика (150 PLN)</label>
+                </div>
+                <div class="calc-item">
+                    <input type="checkbox" id="service2" value="400" data-name="Ремонт подвески" class="service-checkbox">
+                    <label for="service2">Ремонт подвески (от 400 PLN)</label>
+                </div>
+                <div class="calc-item">
+                    <input type="checkbox" id="service3" value="800" data-name="ТО и замена масел" class="service-checkbox">
+                    <label for="service3">ТО и замена масел (от 800 PLN)</label>
+                </div>
+                <div class="calc-item">
+                    <input type="checkbox" id="service4" value="250" data-name="Обслуживание тормозной системы" class="service-checkbox">
+                    <label for="service4">Обслуживание тормозной системы (от 250 PLN)</label>
+                </div>
+                <div class="calc-item">
+                    <input type="checkbox" id="service5" value="120" data-name="Установка парктроников / камер" class="service-checkbox">
+                    <label for="service5">Установка парктроников / камер (от 120 PLN)</label>
+                </div>
+                <div class="calc-item">
+                    <input type="checkbox" id="service6" value="200" data-name="Ремонт автоэлектрики" class="service-checkbox">
+                    <label for="service6">Ремонт автоэлектрики (от 200 PLN)</label>
+                </div>
+                <div class="calc-item">
+                    <input type="checkbox" id="service7" value="100" data-name="Шиномонтаж и балансировка" class="service-checkbox">
+                    <label for="service7">Шиномонтаж и балансировка (от 100 PLN)</label>
+                </div>
+                <div class="calc-item">
+                    <input type="checkbox"  id="service8" value="250" data-name="Замена тормозов" class="service-checkbox">
+                    <label for="service8">Замена тормозов (от 250 PLN)</label>
+                </div>
+                <div class="calc-item">
+                    <input type="checkbox"  id="service9" value="200" data-name="Детейлинг" class="service-checkbox">
+                    <label for="service9">Детейлинг (от 200 PLN)</label>
+                </div>
+
+                <p class="calc-result">Итоговая цена: <span id="price">0</span> PLN</p>
+                <p id="calc-hint"></p>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>О нашей мастерской AutoLodz</h2>
+            <p>Мы предлагаем качественный ремонт автомобилей в Лодзи. Наша команда — это профессионалы, которые любят свое дело и ценят время каждого клиента. Используем только проверенные запчасти и современное оборудование, чтобы ваш автомобиль всегда был на ходу и в безопасности.</p>
+            <div class="about-stats">
+                <div class="stat-box"><span class="stat-number">>5 000</span><span class="stat-text">Отремонтированных авто</span></div>
+                <div class="stat-box"><span class="stat-number">6</span><span class="stat-text">Оборудованных боксов</span></div>
+                <div class="stat-box"><span class="stat-number">3 года</span><span class="stat-text">Гарантии на работы</span></div>
+                <div class="stat-box"><span class="stat-number">от 30 мин</span><span class="stat-text">Время экспресс-ТО</span></div>
+            </div>
+            <div class="team-container">
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🔧⚡</div>
+                    <h4>Ян Ковальски</h4>
+                    <p class="team-role">Ведущий диагност</p>
+                    <p class="team-info">Эксперт в автоэлектрике с огромным стажем</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🔧🚗</div>
+                    <h4>Томаш Щинкевич</h4>
+                    <p class="team-role">Эксперт по ходовой части</p>
+                    <p class="team-info">Знает всё про подвеску и тормоза</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🔧⏱️</div>
+                    <h4>Матеуш Новак</h4>
+                    <p class="team-role">Мастер экспресс-обслуживания</p>
+                    <p class="team-info">Специалист по быстрому ТО. Замена шин, масла и фильтров от 30 минут без очередей</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="workshop-panel" class="workshop-section">
+            <div class="workshop">
+                <h2>Машины в боксах (Текущий статус):</h2>
+
+                <div class="counter-box">
+                    Машин в боксах:<span id="count-num">2</span>
+                </div>
+
+                <ul class="task-list">
+                    <li class="task-item">
+                        <span class="task-text">Hyndai i20 — Замена масла</span>
+                        <span class="delete-btn admin-only">&times;</span>
+                    </li>
+                    <li class="task-item">
+                        <span class="task-text">Volkswagen Golf — Ремонт подвески</span>
+                        <span class="delete-btn admin-only">&times;</span>
+                    </li>
+                </ul>
+
+                <button class="btn-clear admin-only">Очистить весь список</button>
+
+                <div class="workshop-controls admin-only">
+                    <input type="text" class="task-input" placeholder="Марка и поломка...">
+                    <button class="btn-add">Добавить машину</button>
+                </div>
+
+                <button id="toggle-admin-mode" class="toggle-admin-mode">Войти как Мастер (Тест)</button>
+            </div>
+        </section>
+
+        <section id="tab-cards-complete" class="tab-cards-complete">
+            <div class="tab-container">
+                <button class="tab-btn active" data-target="repair">Ремонт</button>
+                <button class="tab-btn" data-target="polish">Полировка</button>
+                <div id="repair" class="tab-content active">
+                    <div class="gallery-grid">
+                        <div class="work-card">
+                            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=500" alt="Ремонт подвески">
+                            <div class="work-info">
+                                <h3>Ремонт передней подвески</h3>
+                                <p>Замена амортизаторов, сайлентблоков и стоек стабилизатора. Машина снова держит дорогу идеально.</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?q=80&w=500" alt="Компьютерная диагностика">
+                            <div class="work-info">
+                                <h3>Поиск и устранение ошибки ДВС</h3>
+                                <p>Провели глубокое сканирование блоков, выявили неисправность датчика и устранили троение двигателя.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="polish" class="tab-content">
+                    <div class="gallery-grid">
+                        <div class="work-card">
+                            <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?q=80&w=500" alt="Полировка кузова">
+                            <div class="work-info">
+                                <h3>Глубокая полировка кузова</h3>
+                                <p>Убрали 95% мелких царапин и паутинки. Покрыли кузов защитным слоем твердого воска.</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img src="https://images.unsplash.com/photo-1520116468816-95b69f847357?q=80&w=500" alt="Химчистка">
+                            <div class="work-info">
+                                <h3>Детейлинг-химчистка салона</h3>
+                                <p>Полный разбор салона, глубокое очищение сидений и напольного покрытия от застарелых пятен.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="review-feed" class="review-feed">
+            <div class="review-container">
+                <h2 class="review-title">Отзывы владельцев</h2>
+                <div class="slider-window">
+                    <div class="slider-line">
+                        <div class="slider-item">
+                            <p>«Приехал со стуком в передней подвеске на Toyota Avensis. Парни сделали диагностику за 15 минут, четко приговорили стойки стабилизатора и сайлентблоки. Запчасти были в наличии, поменяли в тот же день. Машина снова сбитая, тихая, едет как новая. Отличный сервис, рекомендую!»</p>
+                            <strong>— Илья К., Toyota Avensis (2008)</strong>
+                        </div>
+                        <div class="slider-item">
+                            <p>«Делал здесь глубокую полировку кузова и покрытие твердым воском. Честно, не ожидал такого эффекта — убрали всю мелкую паутину от моек, цвет стал глубоким, машина горит на солнце! Салон почистили в подарок, за что отдельное человеческое спасибо. Ребята знают свое дело.»</p>
+                            <strong>— Дмитрий М., BMW X5</strong>
+                        </div>
+                        <div class="slider-item">
+                            <p>«Загорелся чек, двигатель начал троить на холостых. В двух сервисах предлагали менять всё подряд от свечей до капиталки. Сюда приехал по совету друга. Мастер подключил сканер, быстро нашел проблему в проводке фишки второго цилиндра. Исправили за полчаса! Честный и профессиональный подход.»</p>
+                            <strong>— Артем В., Volkswagen Golf</strong>
+                        </div>
+                    </div>
+                    <button class="btn-left"><span>&#9664;</span></button>
+                    <button class="btn-right"><span>&#9654;</span></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="contacts">
+            <h2>Контакты и запись</h2>
+            <div class="contacts-container">
+                <div class="contacts-column">
+                    <div class="contacts-info">
+                        <h3>Наш адрес</h3>
+                        <p>г. Лодзь, ул. Пётрковская, 102</p>
+                        <h3>Телефон</h3>
+                        <p>+48 123 456 789</p>
+                        <h3>Время работы</h3>
+                        <p>Пн-Сб: 8:00 - 18:00</p>
+                    </div>
+                    <form class="contacts-form">
+                        <input type="text" placeholder="Ваше имя" required>
+                        <input type="tel" placeholder="Номер телефона" required>
+                        <input type="text" id="selected-services-input" readonly placeholder="Выбранные услуги появятся здесь...">
+                        <button type="submit" class="btn-submit">Записаться на ремонт</button>
+                    </form>
+                </div>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d617.311666258131!2d19.457192409200346!3d51.76509767659328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471bcb2aade25ead%3A0x6feb7ed558e94495!2zUGlvdHJrb3dza2EgMTAyLCA5MC0wMDEgxYHDs2TFug!5e0!3m2!1sru!2spl!4v1780831866480!5m2!1sru!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="faq-section" class="faq-section">
+            <h2>Часто задаваемые вопросы</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Сколько по времени занимает компьютерная диагностика?</span>
+                        <span class="faq-arrow">&#9662;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>В среднем диагностика занимает от 30 до 50 минут. Мастер полностью сканирует блоки автомобиля, считывает ошибки и подготавливает для вас подробный отчет.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как работает скидка 10% в калькуляторе?</span>
+                        <span class="faq-arrow">&#9662;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Всё просто: как только вы выбираете в нашем калькуляторе 4 или более любые услуги, система автоматически пересчитывает итоговую стоимость со скидкой 10%!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>AutoLodz</h3>
+                <p>Профессиональная диагностика и качественный ремонт любой сложности за минимальные сроки</p>
+            </div>
+            <div class="footer-section">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="#services">Услуги и цены</a></li>
+                    <li><a href="#tab-cards-complete">Примеры работ</a></li>
+                    <li><a href="#workshop-panel">Машины в боксах</a></li>
+                    <li><a href="#review-feed">Отзывы клиентов</a></li>
+                    <li><a href="#contacts">Контакты и запись</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>☎️ +48 123 456 789</p>
+                <p>🏠 г. Лодзь, ул. Пётрковская, 102</p>
+                <p>⏰ Пн-Сб: 8:00 - 18:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 AutoLodz. Все права защищены.</p></div>
+    </footer>
+    
+    <button class="btn-to-top hidden-btn">↑ Наверх</button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

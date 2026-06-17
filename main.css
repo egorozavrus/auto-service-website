@@ -1,0 +1,1002 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #1a252f;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header .logo a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+header .logo a:hover {
+    opacity: 0.8;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+header nav a:hover {
+    color: #3498db;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/*header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }    
+}*/
+
+                        /* MAIN */
+
+/* SECTION HERO */
+
+.hero {
+    background-color: #232323;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero p {
+    color: #b5b5b5;
+    font-size: 20px;
+}
+
+/*.hero button {
+    background-color: #ff4805;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    color: #f6f6f6;
+    font-size: 16px;
+}
+.hero button:hover {
+    background-color: #e03d00;
+}*/
+
+.calc-box {
+    background-color: #2d2d2d;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.calc-box h3 {
+    color: #b5b5b5;
+    margin-bottom: 10px;
+}
+
+.calc-box .calc-item {
+    color: #fff;
+    text-align: left;
+    max-width: 320px;
+    margin: 0 auto;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.calc-result {
+    margin-top: 20px;
+    text-align: center;
+}
+.calc-result #price {
+    color: #e74e01;
+    font-weight: bold;
+}
+
+#calc-hint {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* SECTION SERVICES */
+
+.services-section {
+    background-color: #111;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.services-section-title {
+    background-color: #232323;
+    padding: 30px 20px 40px 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.services-section h1 {
+    color: #fff;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.services-section p {
+    color: #b5b5b5;
+    font-size: 16px;
+}
+
+.services-section h2 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card-container {
+    max-width: 350px;
+    background-color: transparent;
+    height: 380px;
+    perspective: 1000px;
+    justify-self: center;
+    width: 100%;
+}
+
+.card-flip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+.card-container:hover .card-flip {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.card-front {
+    background-color: #242424;
+    color: white;
+    border-bottom: 4px solid #e74e01;
+}
+
+.card-icon {
+    font-size: 60px;
+    margin-top: 40px;
+}
+
+.card-front h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.hover-hint {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+.card-back {
+    background-color: #1e2720;
+    color: white;
+    transform: rotateY(180deg);
+    border-bottom: 4px solid #76ff05;
+}
+
+.card-back h3 {
+    color: #76ff05;
+    margin-bottom: 15px;
+}
+
+.card-service-list {
+    list-style: disc;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.card-service-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+}
+.card-service-list li::marker {
+    color: #76ff05;        /* Красим саму точку в твой фирменный цвет! */
+    font-size: 1.2em;      /* Можно слегка увеличить размер точки */
+}
+
+
+
+.card-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin: 15px 0;
+}
+
+.btn-card-action {
+    background-color: #76ff05;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+}
+.btn-card-action:hover {
+    background-color: #62d404;
+}
+
+/* SECTION ABOUT */
+
+.about-section {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about-section h2 {
+    font-size: 32px;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+}
+
+.about-section p {
+    color: #868686;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.about-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.stat-box {
+    background-color: #242424;
+    padding: 20px;
+    margin: 10px;
+    min-width: 200px;
+    border-radius: 6px;
+}
+
+.stat-number {
+    font-size: 38px;
+    font-weight: bold;
+    color: #e74e01;
+    display: block;
+}
+
+.stat-text {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    background-color: #242424;
+    padding: 30px 20px;
+    border-radius: 8px;
+    width: 280px;
+    transition: transform 0.3s ease;
+}
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-avatar {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.team-role {
+    color: #76ff05;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.team-info {
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+
+/* SECTION WORKSHOP */
+
+.workshop-section {
+    padding: 60px 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+}
+
+.workshop {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #242424;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.workshop h2 {
+    margin-bottom: 20px;
+    color: #ffcc00;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: #2d2d2d;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    border-left: 4px solid #e74e01;
+    transition: all 0.2s ease;
+}
+
+.task-item:hover {
+    background-color: #383838;
+}
+
+
+.task-item.done {
+    color: #888;
+    text-decoration: line-through;
+    border-left-color: #76ff05;
+    background-color: #1e2720;
+    opacity: 0.7;
+}
+
+.workshop-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.task-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #111;
+    color: #fff;
+    font-size: 16px;
+}
+
+.task-input:focus {
+    border-color: #ffcc00;
+    outline: none;
+}
+
+.btn-add {
+    padding: 12px 20px;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.btn-add:hover {
+    background-color: #e6b800;
+}
+
+.delete-btn {
+    font-size: 22px;
+    color: #888;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.delete-btn:hover {
+    color: #ff3333;
+    transform: scale(1.2);
+}
+
+.btn-clear {
+    margin: 15px 0 25px 0;
+    background: none;
+    border: 1px solid #ff3333;
+    color: #ff3333;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.btn-clear:hover {
+    background-color: #ff3333;
+    color: #fff;
+}
+
+.counter-box {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #76ff05;
+    font-size: 18px;
+}
+
+.toggle-admin-mode {
+    margin-top: 20px;
+    background: none;
+    border: 1px dashed #555;
+    color: #555;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+/* Skrytaja knopka */
+.admin-only {
+    display: none !important;
+}
+
+/* А этот класс мы будем включать через JavaScript, когда мастер "авторизуется" */
+.workshop.master-mode .admin-only {
+    display: flex !important; /* Для инпутов */
+}
+
+/* Для кнопки очистки и крестиков, чтобы они не ломали флексы, сделаем inline-block */
+.workshop.master-mode button.admin-only,
+.workshop.master-mode span.admin-only {
+    display: inline-block !important;
+}
+
+/* SECTION SLIDER */
+
+.tab-container {
+    background-color: #1e2720;
+    padding: 60px 20px;
+}
+
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+.tab-content p {
+    font-size: 14px;
+    color: white;
+    margin-top: 20px;
+}
+
+.tab-btn {
+    background-color: #76ff05;
+    color: #353535;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+.tab-btn.active {
+    background-color: #e74e01;
+}
+
+
+/* Сетка для карточек */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Карточки сами встают в ряд и переносятся, если мало места */
+    gap: 25px; /* Отступы между карточками */
+    margin-top: 30px;
+}
+
+/* Сама карточка работы */
+.work-card {
+    background-color: #262626;
+    border-radius: 8px;
+    overflow: hidden; /* Чтобы картинка не вылезала за скругленные края карточки */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Настройки изображения */
+.work-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Картинка масштабируется красиво, без искажений пропорций */
+}
+
+/* Описание работы внутри карточки */
+.work-info {
+    padding: 20px;
+}
+
+.work-info h3 {
+    margin: 0 0 10px 0;
+    color: #76ff05; /* Наш фирменный зеленый */
+    font-size: 20px;
+}
+
+.work-info p {
+    margin: 0;
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* SECTION REVIEWS */
+
+.review-container {
+    background-color: #262626;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.review-title {
+    text-align: center;
+    font-weight: 700;
+    color: #e6b800; /* Твой фирменный желтый цвет, как на кнопках */
+    margin-top: 0;
+    margin-bottom: 35px; /* Отступ до самого слайдера */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.slider-window {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+
+.slider-line {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.slider-item {
+    width: 100%;
+    flex-shrink: 0;
+    background-color: #fff;
+    color: #262626;
+    padding: 25px 50px;
+    box-sizing: border-box;
+}
+
+.slider-item p {
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.slider-item strong {
+    display: block;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0; /* Аккуратная тонкая линия */
+    color: #555555; /* Мягкий графитовый цвет, приятный для глаз */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase; /* Делает буквы заглавными для стиля */
+    letter-spacing: 1px; /* Слегка раздвигаем буквы */
+}
+
+.slider-window .btn-left, .slider-window .btn-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.slider-window .btn-left {
+    left: 5px;
+}
+
+.slider-window .btn-right {
+    right: 5px;
+}
+
+.slider-window button span {
+    opacity: 0.65;
+}
+
+/* SECTION CONTACTS */
+
+.contacts {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+}
+
+.contacts h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contacts-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+.contacts-column {
+    flex: 1 1 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.map-wrapper {
+    flex: 1 1 450px;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.contacts-info {
+    text-align: left;
+}
+
+.contacts-form {
+    border-top: 2px solid #e0e0e0;
+    padding-top: 30px;
+}
+
+.contacts-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-submit {
+    background-color: #76ff05;
+    color: #353535;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-submit:hover {
+    background-color: #68e701;
+    color: #505050;
+}
+
+/* SECTION FAQ */
+
+.faq-section {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 60px 20px;
+}
+
+.faq-section h2 {
+    font-size: 30px;
+    max-width: 420px;
+    margin: 0 auto 25px auto;
+}
+
+.faq-item {
+    cursor: pointer;
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 10px 20px;
+}
+
+.faq-question span {
+    font-size: 18px;
+}
+
+.faq-arrow {
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+    font-size: 16px;
+    color: #acacac;
+}
+
+
+/* FOOTER */
+footer {
+    background-color: #242424;
+    color: #f6f6f6;
+    padding: 40px 0 0 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+.footer-section h3 {
+    border-bottom: 4px solid #76ff05;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+.footer-section ul li a:hover {
+    color: #ff3333;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top : 1px solid #e74e01;
+}
+
+.footer-bottom p {
+    font-size: 12px;
+    padding: 15px 0;
+}
+
+/* BUTTON TOP */
+
+.btn-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 12px 18px;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.hidden-btn {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+/* @media */
+
+@media (min-width: 600px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr); /* Строго 2 колонки (сетка 2х2) */
+    }
+}
+
+/* Большие экраны и ноутбуки */
+@media (min-width: 1150px) {
+    .services-container {
+        grid-template-columns: repeat(4, 1fr); /* Ровный ряд из 4 карточек */
+    }
+}
+
+.card-container {
+    max-width: 350px;
+    background-color: transparent;
+    height: 380px;
+    perspective: 1000px;
+    justify-self: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+
+        flex-direction: column;
+        padding: 20px 0;
+
+    }
+
+    header nav a {
+        padding: 15px 20px;
+        width: 100%;
+        text-align: center;
+        display: block;
+        padding-right: 60px;
+    }
+
+    header nav.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        width: 40px;      /* Фиксированная ширина */
+        height: 40px;     /* Фиксированная высота */
+        line-height: 40px; /* Выравнивание символа точно по центру высоты */
+        text-align: center;
+        font-size: 32px;  /* Размер иконок */
+        padding: 0;       /* Убираем лишние отступы, которые могут влиять на позицию */
+        overflow: hidden; /* Чтобы ничего не вылазило за границы */
+    }
+
+    .btn-to-top {
+        display: none !important;
+    }
+
+    .calc-box .calc-item {
+        max-width: 100%;
+    }
+
+    .contacts h2,
+    .contacts-info {
+        text-align: center;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-section {
+        max-width: 100%;
+        text-align: center;
+    }
+}
