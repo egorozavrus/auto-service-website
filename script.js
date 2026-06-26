@@ -95,14 +95,14 @@ function calculateTotal() {
     if (checkedCount >= 4) {
         total = Math.round(total * 0.9);
         priceElement.style.color = '#76ff05';
-        hintElement.innerText = "🔥 Ура! Вам доступна скидка 10%!";
+        hintElement.innerText = "🔥 Hurra! Przysługuje Ci zniżka 10%!";
     } else {
         priceElement.style.color = '#e74e01';
 
         if (checkedCount > 0){
-            hintElement.innerText = `Добавьте еще ${4 - checkedCount} услуги для скидки 10%`;
+            hintElement.innerText = `Dodaj jeszcze ${4 - checkedCount} usługi, aby uzyskać 10% zniżki`;
         } else {
-            hintElement.innerText = "Выберите услуги для расчета";
+            hintElement.innerText = "Wybierz usługi do kalkulacji";
         }
         
     }
@@ -124,8 +124,8 @@ const taskInput = document.querySelector('.task-input');
 const btnClear = document.querySelector('.btn-clear');
 
 let carsArray = JSON.parse(localStorage.getItem('cars')) || [
-    { text: 'Hyudai i20', done: false },
-    { text: 'Volkswagen', done: false }
+    { text: 'Hyundai i20 — Wymiana oleju', done: false },
+    { text: 'Volkswagen Golf — Naprawa zawieszenia', done: false }
 ];
 
 btnAdd.addEventListener('click', function() { 
@@ -228,22 +228,22 @@ toggleAdminBtn.addEventListener('click', function() {
     if (workshopBlock.classList.contains('master-mode')) {
         
         workshopBlock.classList.remove('master-mode');
-        toggleAdminBtn.textContent = 'Войти как Мастер (Тест)';
+        toggleAdminBtn.textContent = 'Zaloguj jako Mistrz';
         toggleAdminBtn.style.color = '#555';
         toggleAdminBtn.style.borderColor = '#555';
     }
     else {
-        const password = prompt("Введите пароль мастера");
+        const password = prompt("Wpisz hasło mistrza");
 
         if (password === "Lodz_2026") {
 
         workshopBlock.classList.add('master-mode');
-        toggleAdminBtn.textContent = 'Выйти из режима Мастера';
+        toggleAdminBtn.textContent = 'Wyjdź z trybu Mistrza';
         toggleAdminBtn.style.color = '#76ff05';
         toggleAdminBtn.style.borderColor = '#76ff05';
     
         } else {
-           alert("Неверный пароль!");
+           alert("Błędne hasło!");
             
         }
     }
@@ -321,7 +321,7 @@ contactsForm.addEventListener('submit', function(event) {
 
     let userName = contactsForm.querySelector('input[type="text"]').value;
 
-    alert("Спасибо, " + userName + "! Заявка успешно отправлена. Джемми уже передал её мастерам в Лодзи!");
+    alert("Dziękujemy, " + userName + "! Zgłoszenie zostało pomyślnie wysłane!");
 
     contactsForm.reset();
 });
