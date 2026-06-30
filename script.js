@@ -82,6 +82,7 @@ function calculateTotal() {
     let total = 0;
     let checkedCount = 0;
     let chosenServices = [];
+    let savedIds = [];
 
     for (let checkbox of checkboxes) {
         if (checkbox.checked) {
@@ -90,6 +91,8 @@ function calculateTotal() {
 
             let serviceName = checkbox.getAttribute('data-name');
             chosenServices.push(serviceName);
+
+            savedIds.push(checkbox.id);
 
             const li = document.createElement('li');
             li.innerHTML = `${serviceName} ${checkbox.value} PLN <button class="delete-item" data-target="${checkbox.id}">❌</button>`;
@@ -115,6 +118,8 @@ function calculateTotal() {
     }
 
     priceElement.innerText = total;
+
+    localStorage.setItem('autoServices', JSON.stringify(savedIds));
 }
 
 for (let checkbox of checkboxes) {
@@ -131,6 +136,23 @@ invoiceList.addEventListener('click', function(event) {
             calculateTotal();
         }
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+const savedData = localStorage.getItem('autoServices');
+
+if (savedData) {
+    const activeIds = JSON.parse(savedData);
+
+    for (let id of activeIds) {
+        const checkbox = document.getElementById(id);
+        if (checkbox) {
+            checkbox.checked = true;
+        }
+    }
+
+    calculateTotal();
+}
 });
 
 
@@ -330,6 +352,40 @@ function moveSlider() {
     sliderLine.style.transform = 'translateX(-' + (sliderCount * slideWidth) + 'px)';
 };
 
+// Переменные для отслеживания пальца
+let touchStartX = 0;
+let touchEndX = 0;
+
+// 1. Запоминаем, где палец коснулся экрана
+sliderWindow.addEventListener('touchstart', function(event) {
+    touchStartX = event.changedTouches[0].screenX;
+});
+
+// 2. Запоминаем, где палец оторвался от экрана, и считаем свайп
+sliderWindow.addEventListener('touchend', function(event) {
+    touchEndX = event.changedTouches[0].screenX;
+    
+    const swipeThreshold = 50; // Минимальный свайп в пикселях
+
+    // Свайп влево (палец поехал влево -> показываем СЛЕДУЮЩИЙ слайд)
+    if (touchStartX - touchEndX > swipeThreshold) {
+        sliderCount++;
+        if (sliderCount > 2) {
+            sliderCount = 0;
+        }
+        moveSlider();
+    } 
+    
+    // Свайп вправо (палец поехал вправо -> показываем ПРЕДЫДУЩИЙ слайд)
+    else if (touchEndX - touchStartX > swipeThreshold) {
+        sliderCount--;
+        if (sliderCount < 0) {
+            sliderCount = 2;
+        }
+        moveSlider();
+    }
+});
+
 /* FORM */ 
 
 const contactsForm = document.querySelector('.contacts-form');
@@ -347,13 +403,18 @@ contactsForm.addEventListener('submit', function(event) {
 
 /* MAP */
 
-const map = L.map('map');
+document.addEventListener('DOMContentLoaded', () => {
+const map = L.map('map', {
+    scrollWheelZoom: false, // Отключает зум колесиком мыши
+    tap: !L.Browser.mobile,  // Убирает баг с "залипанием" тапов на мобильных
+    dragging: !L.Browser.mobile // Отключает перетаскивание карты ОДНИМ пальцем на мобилках
+});
 map.setView([51.75, 19.45], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
     { attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
 
 L.marker([51.765074, 19.457282]).bindPopup('AutoŁódź — czynne od 8:00').addTo(map);
-
+});
 
 
 /* FAQ Questions */
