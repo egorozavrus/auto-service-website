@@ -75,8 +75,10 @@ const checkboxes = document.querySelectorAll('.service-checkbox');
 const priceElement = document.getElementById('price');
 const hintElement = document.getElementById('calc-hint');
 const servicesInput = document.getElementById('selected-services-input');
+const invoiceList = document.getElementById('invoice-list');
 
 function calculateTotal() {
+    invoiceList.innerHTML = '';
     let total = 0;
     let checkedCount = 0;
     let chosenServices = [];
@@ -85,8 +87,13 @@ function calculateTotal() {
         if (checkbox.checked) {
             total += parseInt(checkbox.value);
             checkedCount++;
+
             let serviceName = checkbox.getAttribute('data-name');
             chosenServices.push(serviceName);
+
+            const li = document.createElement('li');
+            li.innerHTML = `${serviceName} ${checkbox.value} PLN <button class="delete-item" data-target="${checkbox.id}">❌</button>`;
+            invoiceList.appendChild(li);
         }
     }
 
@@ -113,6 +120,18 @@ function calculateTotal() {
 for (let checkbox of checkboxes) {
     checkbox.addEventListener('change', calculateTotal);
 }
+
+invoiceList.addEventListener('click', function(event) {
+    if (event.target.classList.contains('delete-item')) {
+        const checkboxId = event.target.getAttribute('data-target');
+        const checkbox = document.getElementById(checkboxId);
+
+        if (checkbox) {
+            checkbox.checked = false;
+            calculateTotal();
+        }
+    }
+});
 
 
 
@@ -235,7 +254,7 @@ toggleAdminBtn.addEventListener('click', function() {
     else {
         const password = prompt("Wpisz hasło mistrza");
 
-        if (password === "Lodz_2026") {
+        if (password === "123") {
 
         workshopBlock.classList.add('master-mode');
         toggleAdminBtn.textContent = 'Wyjdź z trybu Mistrza';
@@ -311,7 +330,7 @@ function moveSlider() {
     sliderLine.style.transform = 'translateX(-' + (sliderCount * slideWidth) + 'px)';
 };
 
-/* Dla FORM */ 
+/* FORM */ 
 
 const contactsForm = document.querySelector('.contacts-form');
 
@@ -325,6 +344,15 @@ contactsForm.addEventListener('submit', function(event) {
 
     contactsForm.reset();
 });
+
+/* MAP */
+
+const map = L.map('map');
+map.setView([51.75, 19.45], 13);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
+    { attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+
+L.marker([51.765074, 19.457282]).bindPopup('AutoŁódź — czynne od 8:00').addTo(map);
 
 
 
