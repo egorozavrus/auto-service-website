@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+/* Убираем дефолтную рамку фокуса в Firefox */
+input[type="checkbox"]:-moz-focusring {
+    outline: none;
+}
+
+/* Универсальный сброс системных стилей для Safari и iOS */
+input[type="checkbox"] {
+    -webkit-appearance: checkbox; /* Гарантирует, что Safari отобразит его как чекбокс, но без багов */
+    -moz-appearance: checkbox;
+    appearance: checkbox;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -22,7 +34,7 @@ header {
     color: white;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 2000;
 }
 
 header .logo {
