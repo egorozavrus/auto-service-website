@@ -66,15 +66,18 @@ btnMobileMenu.addEventListener('click', function () {
 
 });
 
-/* ПЕРЕВОРОТ КАРТОЧЕК ПО ТАПУ НА МОБИЛЬНЫХ */
+/* ПЕРЕВОРОТ КАРТОЧЕК ПО ТАПУ И КЛИКУ */
 const cardContainers = document.querySelectorAll('.card-container');
 
-for (let container of cardContainers) {
-    container.addEventListener('click', function() {
-        // Переключаем класс flipped: если есть — снимет, если нет — добавит
+cardContainers.forEach(container => {
+    container.addEventListener('click', function(e) {
+        // Если кликнули по кнопке внутри карточки — не переворачиваем карточку заново
+        if (e.target.closest('.btn-card-action')) return;
+
+        // Переключаем класс
         this.classList.toggle('flipped');
     });
-}
+});
 
 
 /* Dla CALC */
