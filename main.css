@@ -247,7 +247,8 @@ header nav a:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
 }
-.card-container:hover .card-flip {
+.card-container:hover .card-flip,
+.card-container.flipped .card-flip {
     transform: rotateY(180deg);
 }
 
@@ -828,7 +829,7 @@ header nav a:hover {
 
 .faq-section h2 {
     font-size: 30px;
-    max-width: 420px;
+    max-width: 430px;
     margin: 0 auto 25px auto;
 }
 
@@ -1002,6 +1003,19 @@ footer {
     .team-card {
         width: 100%; /* Карточки мастеров тоже выстраиваются в один удобный столбик */
         max-width: 320px;
+    }
+
+    .workshop-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        width: 100%;
+    }
+
+    .workshop-controls .task-input,
+    .workshop-controls .btn-add {
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 

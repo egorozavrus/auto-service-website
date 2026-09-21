@@ -10,9 +10,16 @@ for (let link of menuLinks) {
         const targetId = link.getAttribute('href');
         const targetSection = document.querySelector(targetId);
 
-        targetSection.scrollIntoView({
-           behavior: 'smooth' 
-        });
+        if (targetSection) {
+            targetSection.scrollIntoView({
+            behavior: 'smooth' 
+            });
+        }
+
+        if (nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            btnMobileMenu.innerHTML = '&#9776;';
+        }
     });
 }
 
@@ -59,12 +66,13 @@ btnMobileMenu.addEventListener('click', function () {
 
 });
 
+/* ПЕРЕВОРОТ КАРТОЧЕК ПО ТАПУ НА МОБИЛЬНЫХ */
+const cardContainers = document.querySelectorAll('.card-container');
 
-
-for (let link of menuLinks) {
-    link.addEventListener('click', function() {
-        nav.classList.remove('active');
-        btnMobileMenu.innerHTML = '&#9776;';
+for (let container of cardContainers) {
+    container.addEventListener('click', function() {
+        // Переключаем класс flipped: если есть — снимет, если нет — добавит
+        this.classList.toggle('flipped');
     });
 }
 
@@ -164,17 +172,12 @@ const taskList = document.querySelector('.task-list');
 const taskInput = document.querySelector('.task-input');
 const btnClear = document.querySelector('.btn-clear');
 
-let carsArray = JSON.parse(localStorage.getItem('cars')) || [
-    { text: 'Hyundai i20 — Wymiana oleju', done: false },
-    { text: 'Volkswagen Golf — Naprawa zawieszenia', done: false }
-];
+let carsArray = JSON.parse(localStorage.getItem('cars')) || [];
 
 btnAdd.addEventListener('click', function() { 
 	const addAuto = taskInput.value;
 	
-	if (addAuto === ''){
-		return;
-	}
+	if (addAuto === '') return;
 		
     const newCar = { text: addAuto, done: false };
 	
@@ -185,24 +188,22 @@ btnAdd.addEventListener('click', function() {
 	taskInput.value = '';
 });
 
+taskInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        btnAdd.click();
+    }
+});
+
 taskList.addEventListener('click', function(e) {
 
-    const workshop = document.querySelector('.workshop');
-
-    if (!workshop.classList.contains('master-mode')) {
-        return;
-    }
+    if (!workshopBlock.classList.contains('master-mode')) return;
 
     if (e.target.classList.contains('delete-btn')) {
 
-        const index = parseInt(e.target.dataset.index);
-
+        const index = parseInt(e.target.dataset.index, 10);
         carsArray.splice(index, 1);
-
         saveToStorage();
-
         renderCars();
-
         return;
     }
 
@@ -212,7 +213,7 @@ taskList.addEventListener('click', function(e) {
     const deleteBtn = liItem.querySelector('.delete-btn');
     if (!deleteBtn) return;
 
-    const index = parseInt(deleteBtn.dataset.index);
+    const index = parseInt(deleteBtn.dataset.index, 10);
     carsArray[index].done = !carsArray[index].done;
 
     saveToStorage();
@@ -351,6 +352,8 @@ function moveSlider() {
 
     sliderLine.style.transform = 'translateX(-' + (sliderCount * slideWidth) + 'px)';
 };
+
+window.addEventListener('resize', moveSlider);
 
 // Переменные для отслеживания пальца
 let touchStartX = 0;
